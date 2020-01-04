@@ -11,6 +11,10 @@ class Tasks extends Component {
           const { tasks } = value;
           return (
             <div>
+              <h1 className="display-4 mb-2">
+                {/* Using span the text inside can be styled */}
+                <span className="text-danger">Contact List</span>
+              </h1>
               {tasks.map(task => (
                 // Without the key, a warning is shown saying that each child should have a unique identifier
                 <Task
