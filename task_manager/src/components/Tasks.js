@@ -13,7 +13,12 @@ class Tasks extends Component {
             <div>
               <h1 className="display-4 mb-2">
                 {/* Using span the text inside can be styled */}
-                <span className="text-danger">Contact List</span>
+                <span
+                  className="text
+                -danger"
+                >
+                  Task Manager
+                </span>
               </h1>
               {tasks.map(task => (
                 // Without the key, a warning is shown saying that each child should have a unique identifier

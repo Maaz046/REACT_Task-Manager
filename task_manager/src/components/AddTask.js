@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Consumer } from "../context";
-import TextInputGroup from "./TextInputGroup";
+import TextInputGroup from "./layout/TextInputGroup";
 import uuid from "uuid";
 
 class AddTask extends Component {
@@ -46,6 +46,8 @@ class AddTask extends Component {
       date: "",
       errors: {} //Ensures errors are cleareed on submit
     });
+
+    this.props.history.push("/");
   };
 
   render() {

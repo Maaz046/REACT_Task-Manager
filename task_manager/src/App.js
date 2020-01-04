@@ -4,7 +4,7 @@ import Tasks from "./components/Tasks";
 //Route holds all routes and Switch allows us to hold a default not found page etc
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AddTask from "./components/AddTask";
-import Header from "./components/Header";
+import Header from "./components/layout/Header";
 import About from "./components/pages/About";
 
 import { Provider } from "./context";
