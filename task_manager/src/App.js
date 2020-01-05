@@ -11,6 +11,7 @@ import { Provider } from "./context";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import NotFound from "./components/pages/NotFound";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route exact path="/" component={Tasks} />
               <Route exact path="/about" component={About} />
               <Route exact path="/task/add" component={AddTask} />
+              <Route component={NotFound} />
             </Switch>
           </div>
         </div>
