@@ -47,6 +47,7 @@ class AddTask extends Component {
       errors: {} //Ensures errors are cleareed on submit
     });
 
+    // push allows for redirection
     this.props.history.push("/");
   };
 
