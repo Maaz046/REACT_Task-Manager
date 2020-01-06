@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 const Context = React.createContext();
 
@@ -24,34 +25,47 @@ const reducer = (state, action) => {
 };
 
 //This is where our state will be held for global scope
+//Since Provider extends component, we can use lifecycle methods inside it. SO instead of hardcoding the state
+//we will fetch data from the fake JSON API server
 export class Provider extends Component {
   state = {
-    tasks: [
-      {
-        id: 1,
-        title: "Give Interview",
-        location: "London",
-        detail: "Kubrik consultants",
-        date: "2/5/2019"
-      },
-      {
-        id: 2,
-        title: "Do laundry",
-        location: "Laundromat across the road",
-        detail: "Price increased to $5",
-        date: "25/12/2019"
-      },
-      {
-        id: 3,
-        title: "Complete React Course",
-        location: "Home",
-        detail: "Traversy media course",
-        date: "31/12/2019"
-      }
-    ],
+    tasks: [],
+    // tasks: [
+    //   {
+    //     id: 1,
+    //     title: "Give Interview",
+    //     location: "London",
+    //     detail: "Kubrik consultants",
+    //     date: "2/5/2019"
+    //   },
+    //   {
+    //     id: 2,
+    //     title: "Do laundry",
+    //     location: "Laundromat across the road",
+    //     detail: "Price increased to $5",
+    //     date: "25/12/2019"
+    //   },
+    //   {
+    //     id: 3,
+    //     title: "Complete React Course",
+    //     location: "Home",
+    //     detail: "Traversy media course",
+    //     date: "31/12/2019"
+    //   }
+    // ],
+
     //Needed to call the action
     dispatch: action => this.setState(state => reducer(state, action))
   };
+
+  //Going to use 'axios' rather than 'fetch' for Getting data
+  componentDidMount() {
+    axios
+      .get(
+        "http://my-json-server.typicode.com/Maaz046/REACT_Task-Manager/tasks"
+      )
+      .then(response => this.setState({ tasks: response.data }));
+  }
 
   render() {
     return (
