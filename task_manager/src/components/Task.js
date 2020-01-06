@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Consumer } from "../context";
+import axios from "axios";
 
 class Task extends Component {
   state = {
@@ -13,8 +14,12 @@ class Task extends Component {
   }
 
   delFunc = (id, dispatch) => {
+    axios
+      .delete(
+        `http://my-json-server.typicode.com/Maaz046/REACT_Task-Manager/tasks/${id}`
+      )
+      .then(result => dispatch({ type: "DELETE_TASK", payload: id }));
     //Since we extracted the dispatch function from the Context tag below, we can now call the dispatch function
-    dispatch({ type: "DELETE_TASK", payload: id });
   };
 
   render() {

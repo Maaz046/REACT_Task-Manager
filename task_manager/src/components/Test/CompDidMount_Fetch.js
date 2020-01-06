@@ -10,6 +10,7 @@ export default class Test extends Component {
   };
 
   componentDidMount() {
+    //We can send a GET request through fetch or axios. Here we do a fetch but in context.js we'll use axios
     fetch(
       "http://my-json-server.typicode.com/Maaz046/REACT_Task-Manager/tasks/1"
     )
@@ -31,10 +32,10 @@ export default class Test extends Component {
     const { title, location, date, id } = this.state;
     return (
       <div>
+        <h1>{id}</h1>
         <h1>{title}</h1>
         <h1>{location}</h1>
         <h1>{date}</h1>
-        <h1>{id}</h1>
       </div>
     );
   }
