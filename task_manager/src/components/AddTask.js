@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Consumer } from "../context";
 import TextInputGroup from "./layout/TextInputGroup";
 import uuid from "uuid";
+import axios from "axios";
 
 class AddTask extends Component {
   state = {
@@ -30,14 +31,23 @@ class AddTask extends Component {
     }
 
     const newTask = {
-      id: uuid(),
+      // JSON placeholder like most APIs/DB upon getting a POST will create the id for the posted object itself so uuid is not needed
+      // id: uuid(),
       title,
       location,
       detail,
       date
     };
 
-    dispatch({ type: "ADD_TASK", payload: newTask });
+    //axios post syntax (link to where to post, the object to post)
+    axios
+      .post(
+        "http://my-json-server.typicode.com/Maaz046/REACT_Task-Manager/tasks",
+        newTask
+      )
+      .then(response => dispatch({ type: "ADD_TASK", payload: response.data }));
+    //When you make a JSON POST request, it sends us the object we create back along with
+    //its id so in the dispatch payload we'll no longer be sending the newTask, instead we'll send JSON response data
 
     this.setState({
       title: "",

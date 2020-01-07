@@ -14,6 +14,8 @@ class Task extends Component {
   }
 
   delFunc = (id, dispatch) => {
+    //Initially we just had the dispactch statement here which only deleted from the DOM and not the
+    //Back end. Now using axios delete
     axios
       .delete(
         `http://my-json-server.typicode.com/Maaz046/REACT_Task-Manager/tasks/${id}`
