@@ -13,15 +13,24 @@ class Task extends Component {
     console.log("Detail dd status is " + this.state.detailDropDown);
   }
 
-  delFunc = (id, dispatch) => {
-    //Initially we just had the dispactch statement here which only deleted from the DOM and not the
-    //Back end. Now using axios delete
-    axios
-      .delete(
+  delFunc = async (id, dispatch) => {
+    try {
+      //Initially we just had the dispactch statement here which only deleted from the DOM and not the
+      //Back end. Now using axios delete
+      await axios.delete(
         `http://my-json-server.typicode.com/Maaz046/REACT_Task-Manager/tasks/${id}`
-      )
-      .then(result => dispatch({ type: "DELETE_TASK", payload: id }));
-    //Since we extracted the dispatch function from the Context tag below, we can now call the dispatch function
+      );
+      dispatch({ type: "DELETE_TASK", payload: id });
+      //Since we extracted the dispatch function from the Context tag below, we can now call the dispatch function
+      // .then(result => dispatch({ type: "DELETE_TASK", payload: id }));
+    } catch (e) {
+      dispatch({ type: "DELETE_TASK", payload: id });
+    }
+    //If a new task is added and you try to delete it, it wouldn't be deleted because the new task is added to the DOM only
+    //and not the JSON placehilder DB. Remember, JSOB DB is a fake one where once created, cannot be changed by adding or
+    //deleting tasks. So this try and catch block is inserted: On try an error is produced as axios cannot find a task with that
+    //id in the fake DB hence, in catch we only fire a non axios dispatch to make changes in the DOM.
+    //In a normal App with real DB you wouldn't need to do this
   };
 
   render() {

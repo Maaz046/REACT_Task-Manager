@@ -59,12 +59,17 @@ export class Provider extends Component {
   };
 
   //Going to use 'axios' rather than 'fetch' for Getting data
-  componentDidMount() {
-    axios
-      .get(
-        "http://my-json-server.typicode.com/Maaz046/REACT_Task-Manager/tasks"
-      )
-      .then(response => this.setState({ tasks: response.data }));
+  // Initally this function was not async and await. But fetching data from server may induce delays of upto several seconds
+  //and we don't our program to wait until the data is received, rather do something in the meanwhile.
+  async componentDidMount() {
+    const result = await axios.get(
+      "http://my-json-server.typicode.com/Maaz046/REACT_Task-Manager/tasks"
+    );
+    this.setState({ tasks: result.data });
+
+    // await axios
+    // .get("http://my-json-server.typicode.com/Maaz046/REACT_Task-Manager/tasks")
+    // .then(response => this.setState({ tasks: response.data }));
   }
 
   render() {

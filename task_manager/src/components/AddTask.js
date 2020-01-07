@@ -16,7 +16,7 @@ class AddTask extends Component {
 
   onChange = e => this.setState({ [e.target.name]: [e.target.value] });
 
-  onSubmit = (dispatch, e) => {
+  onSubmit = async (dispatch, e) => {
     e.preventDefault();
     const { title, location, detail, date } = this.state;
 
@@ -40,12 +40,11 @@ class AddTask extends Component {
     };
 
     //axios post syntax (link to where to post, the object to post)
-    axios
-      .post(
-        "http://my-json-server.typicode.com/Maaz046/REACT_Task-Manager/tasks",
-        newTask
-      )
-      .then(response => dispatch({ type: "ADD_TASK", payload: response.data }));
+    const response = await axios.post(
+      "http://my-json-server.typicode.com/Maaz046/REACT_Task-Manager/tasks",
+      newTask
+    );
+    dispatch({ type: "ADD_TASK", payload: response.data });
     //When you make a JSON POST request, it sends us the object we create back along with
     //its id so in the dispatch payload we'll no longer be sending the newTask, instead we'll send JSON response data
 
