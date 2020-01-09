@@ -8,6 +8,7 @@ import Header from "./components/layout/Header";
 import About from "./components/pages/About";
 // import Test from "./components/Test/Test";
 import CompDidMount_Fetch from "./components/Test/CompDidMount_Fetch";
+import EditTask from "./components/EditTask";
 
 import { Provider } from "./context";
 
@@ -30,6 +31,7 @@ function App() {
               <Route exact path="/task/add" component={AddTask} />
               {/* <Route exact path="/test" component={Test} /> */}
               <Route exact path="/test" component={CompDidMount_Fetch} />
+              <Route exact path="/contact/edit/:id" component={EditTask} />
               {/* As long as component name is NotFound, the path doesn't need to be defined as a default is already associaed with this name 
                   Make sure to put the NotFound Route at the end since Routes are looked up sequentially and all others beneath it will be ignored*/}
               <Route component={NotFound} />

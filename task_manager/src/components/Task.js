@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Consumer } from "../context";
 import axios from "axios";
@@ -59,6 +60,17 @@ class Task extends Component {
                     style={{ cursor: "pointer", float: "right", color: "red" }}
                     onClick={this.delFunc.bind(this, id, dispatch)}
                   ></i>
+                  <Link to={`contact/edit/${id}`}>
+                    <i
+                      className="fa fa-pencil"
+                      style={{
+                        cursor: "pointer",
+                        color: "orange",
+                        float: "right",
+                        marginRight: "1rem"
+                      }}
+                    ></i>
+                  </Link>
                 </h4>
                 {detailDropDown ? (
                   <ul className="list-group">
