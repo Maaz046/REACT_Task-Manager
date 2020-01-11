@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/REACT_Task-Manager/static/css/main.6b171aae.chunk.css",
+    "main.js": "/REACT_Task-Manager/static/js/main.3c2686a7.chunk.js",
+    "main.js.map": "/REACT_Task-Manager/static/js/main.3c2686a7.chunk.js.map",
+    "runtime-main.js": "/REACT_Task-Manager/static/js/runtime-main.d3585a13.js",
+    "runtime-main.js.map": "/REACT_Task-Manager/static/js/runtime-main.d3585a13.js.map",
+    "static/css/2.aee84c9b.chunk.css": "/REACT_Task-Manager/static/css/2.aee84c9b.chunk.css",
+    "static/js/2.ef7e5df7.chunk.js": "/REACT_Task-Manager/static/js/2.ef7e5df7.chunk.js",
+    "static/js/2.ef7e5df7.chunk.js.map": "/REACT_Task-Manager/static/js/2.ef7e5df7.chunk.js.map",
+    "index.html": "/REACT_Task-Manager/index.html",
+    "precache-manifest.eb209d4bff705d63e0b1e8c99577b92f.js": "/REACT_Task-Manager/precache-manifest.eb209d4bff705d63e0b1e8c99577b92f.js",
+    "service-worker.js": "/REACT_Task-Manager/service-worker.js",
+    "static/css/2.aee84c9b.chunk.css.map": "/REACT_Task-Manager/static/css/2.aee84c9b.chunk.css.map",
+    "static/css/main.6b171aae.chunk.css.map": "/REACT_Task-Manager/static/css/main.6b171aae.chunk.css.map",
+    "static/js/2.ef7e5df7.chunk.js.LICENSE": "/REACT_Task-Manager/static/js/2.ef7e5df7.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d3585a13.js",
+    "static/css/2.aee84c9b.chunk.css",
+    "static/js/2.ef7e5df7.chunk.js",
+    "static/css/main.6b171aae.chunk.css",
+    "static/js/main.3c2686a7.chunk.js"
+  ]
+}
